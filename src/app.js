@@ -7,7 +7,7 @@ const forecast = require('./utils/weather.js');
 //console.log(path.join(__dirname , '../public'));
 
 const  app = express();
-
+const port = process.env.PORT || 3000;
 const publicDir = path.join(__dirname , '../public');
 const partialsPath = path.join(__dirname,'../templates/partials');
 
@@ -93,12 +93,12 @@ app.get('*' , (req , res)=> {
     });
 });
 
-app.listen(3000 , (err) =>{
+app.listen(port , (err) =>{
 
     if(err)
     {
         console.log(err);
     }
 
-    console.log('Listening to port 3000...');
+    console.log('Listening to port ' + port+'...');
 });
